@@ -23,7 +23,8 @@ class App extends Component {
   }
   componentDidMount(){
     const getData = () => {
-      const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';
+      // const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';
+      const url = 'http://localhost:3000/data/bitcoin-data.json';
 
       fetch(url).then( r => r.json())
         .then((bitcoinData) => {
