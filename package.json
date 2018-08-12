@@ -1,5 +1,5 @@
 {
-  "name": "interactive-bitcoin-price-chart",
+  "name": "strava-chart",
   "version": "1.0.0",
   "dependencies": {
     "moment": "^2.18.1",
