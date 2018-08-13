@@ -1,8 +1,8 @@
 // run node transformStravaData.js
 
-
 const moment = require("moment");
 const fs = require('fs');
+
 const strava_data = require("./public/data/strava-activity-data.json");
 
 // define start/end dates (YYYY-MM-DD)
@@ -13,12 +13,12 @@ const month_ago = moment().subtract(30,'d').toDate();
 const dateArr = createEmptyDateArray(month_ago, today);
 
 // create a JSON object with runs for the last 30 days
-const money = transformDatatoJson(strava_data, dateArr);
-console.log(money);
+const stravaMilesPerDay = transformDatatoJson(strava_data, dateArr);
+console.log(stravaMilesPerDay);
 
 
 const filePath = "./public/data/strava-data.json";
-fs.writeFile(filePath, money, function(err) {
+fs.writeFile(filePath, stravaMilesPerDay, function(err) {
     if(err) {
         return console.log(err);
     }
@@ -53,7 +53,7 @@ function transformDatatoJson (data, dates) {
 		run_dates[i] = data[i].start_date.substring(0,10);
 		run_distances[i] = parseFloat((data[i].distance/1609.34).toFixed(2));
 	}
-	console.log(run_distances);
+	//console.log(run_distances);
 
 	// check if the start_date is contained in the array; if so, update the value
 	for (i = 0; i < dates.length; i++) { 

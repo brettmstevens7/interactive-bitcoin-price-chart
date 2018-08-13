@@ -24,18 +24,18 @@ class App extends Component {
   componentDidMount(){
     const getData = () => {
       // const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';
-      const url = 'http://localhost:3000/data/bitcoin-data.json';
+      const url = 'http://localhost:3000/data/strava-data.json';
 
       fetch(url).then( r => r.json())
-        .then((bitcoinData) => {
+        .then((stravaData) => {
           const sortedData = [];
           let count = 0;
-          for (let date in bitcoinData.bpi){
+          for (let date in stravaData){
             sortedData.push({
               d: moment(date).format('MMM DD'),
-              p: bitcoinData.bpi[date].toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
+              p: stravaData[date] + " miles",
               x: count, //previous days
-              y: bitcoinData.bpi[date] // numerical price
+              y: stravaData[date] // numerical price
             });
             count++;
           }
@@ -55,7 +55,7 @@ class App extends Component {
 
       <div className='container'>
         <div className='row'>
-          <h1>30 Day Bitcoin Price Chart</h1>
+          <h1>Miles Recorded in Strava - Last 30 Days</h1>
         </div>
         <div className='row'>
           { !this.state.fetchingData ?
@@ -75,7 +75,7 @@ class App extends Component {
           </div>
         </div>
         <div className='row'>
-          <div id="coindesk"> Powered by <a href="http://www.coindesk.com/price/">CoinDesk</a></div>
+          <div id="coindesk"> Powered by <a href="https://media.giphy.com/media/3ofT5SAruPuAqHEQNy/giphy.gif">Elves</a></div>
         </div>
       </div>
 

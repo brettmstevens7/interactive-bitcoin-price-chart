@@ -5,7 +5,10 @@
     "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "serve": "^6.0.3"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "serve": "^6.0.3",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"
